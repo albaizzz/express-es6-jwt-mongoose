@@ -4,7 +4,8 @@ import {Router} from 'express';
 // import authApi from './auth';
 import TestRoute from './test';
 import UserRoute from './user';
-import AuthRoute from './auth'
+import AuthRoute from './auth';
+import EventRoute from './event';
 import auth from '../../middleware/require-auth';
 
 const api = Router();
@@ -13,7 +14,8 @@ const api = Router();
 // api.use("/v1/auth", authApi);
 // api.use("/v1/event", auth, eventApi);
 
-api.use("/v1/auth", AuthRoute)
+api.use("/v1/event",auth, EventRoute);
+api.use("/v1/auth", AuthRoute);
 api.use("/v1/user", UserRoute);
 api.use("/v1/test",auth, TestRoute);
 
